@@ -17,7 +17,7 @@ class TimeCircuitsViewController: UIViewController {
     
     private var timer: Timer?
     
-    var dateFormmater: DateFormatter {
+    var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM dd yyyy"
         formatter.timeZone = TimeZone.init(secondsFromGMT: 0)
@@ -28,7 +28,7 @@ class TimeCircuitsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presentTimeLabel.text = dateFormmater.string(from: Date())
+        presentTimeLabel.text = dateFormatter.string(from: Date())
     }
     
     @IBAction func travelBackButtonTapped(_ sender: Any) {
@@ -67,6 +67,6 @@ class TimeCircuitsViewController: UIViewController {
 
 extension TimeCircuitsViewController: DatePickerDelegate {
     func destinationDateWasChosen(date: Date) {
-        destinationTimeLabel.text = dateFormmater.string(from: date)
+        destinationTimeLabel.text = dateFormatter.string(from: date)
     }
 }

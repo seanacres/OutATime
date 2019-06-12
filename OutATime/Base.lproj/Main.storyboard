@@ -98,7 +98,7 @@
                                         <rect key="frame" x="0.0" y="646" width="382" height="132"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhC-QP-CJ9">
-                                                <rect key="frame" x="30.5" y="0.0" width="321" height="82"/>
+                                                <rect key="frame" x="30.5" y="0.0" width="321" height="73"/>
                                                 <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
                                                 <state key="normal" title="Set Destination Time">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -108,11 +108,14 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikN-Qt-bDk">
-                                                <rect key="frame" x="117" y="92" width="148" height="40"/>
-                                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="30"/>
+                                                <rect key="frame" x="92" y="83" width="198" height="49"/>
+                                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
                                                 <state key="normal" title="Travel Back">
-                                                    <color key="titleColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="travelBackButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h65-WK-Tun"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -128,6 +131,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="destinationTimeLabel" destination="1Py-Yo-M61" id="0Xm-qH-71a"/>
+                        <outlet property="lastTimeDepartedLabel" destination="Bga-Qn-jOD" id="v1h-uD-yGm"/>
+                        <outlet property="presentTimeLabel" destination="Wmq-5N-bUU" id="taV-ps-N4q"/>
+                        <outlet property="speedLabel" destination="TbQ-wh-t8z" id="wAq-jR-Cfi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,7 +150,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="qaj-go-fQK">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="qaj-go-fQK">
                                 <rect key="frame" x="47" y="340" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="582062343.03153205">
                                     <!--2019-06-12 19:59:03 +0000-->
@@ -150,10 +159,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5u-75-nnE">
                                 <rect key="frame" x="357" y="812" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="XaU-ZF-CAu" eventType="touchUpInside" id="Qha-yr-B2H"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85r-ij-gaj">
                                 <rect key="frame" x="20" y="812" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="XaU-ZF-CAu" eventType="touchUpInside" id="Tmd-l5-HLM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -168,6 +183,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Il-ul-hkl"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="qaj-go-fQK" id="3Ef-4Z-68g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dL-8O-3wr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
